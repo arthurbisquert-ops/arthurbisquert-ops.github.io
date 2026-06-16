@@ -211,7 +211,81 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 <div>
 <!-- EMPLACEMENT FORMULAIRE BREVO — coller ici le code du formulaire d'inscription.
      L'automatisation Brevo envoie le PDF automatiquement après confirmation (double opt-in RGPD). -->
-<iframe width="100%" height="320" src="https://6b9027d6.sibforms.com/serve/MUIFAHvTyKzDAVVpS1FIUB2jWgYK_-6wGKwYTnGjVM8e9b4oaqAFxyrO3kz5faZMYl2KgjLaY5l5yarj76B9I-Lcp1MCQy_oSYgNN3npPfprTjhd0Hr5_PXyGjdxiBezDLejufabB6CiOl3cdB8IEtROl-rbrRt9PFdExXYV2Y81ZS20Iw1DBocl33DVL2VQrOBdMuWw6fkG1JQBWg==" frameborder="0" scrolling="auto" allowfullscreen style="display:block;margin:0 auto;max-width:100%;border-radius:2px;"></iframe>
+<style>
+#sib-container{background:transparent!important;border:1px solid rgba(201,162,75,0.22)!important;border-radius:2px!important;max-width:100%!important;}
+#sib-container input.input{background:rgba(239,231,214,0.06)!important;border:1px solid rgba(201,162,75,0.3)!important;color:#EFE7D6!important;font-family:"Inter",system-ui,sans-serif!important;font-size:0.96rem!important;padding:12px 16px!important;border-radius:2px!important;}
+#sib-container input.input::placeholder{color:#8A7E6B!important;}
+#sib-container input.input:focus{border-color:#C9A24B!important;outline:none!important;}
+.sib-form-block__button{background:#C9A24B!important;color:#16130F!important;font-family:"Inter",system-ui,sans-serif!important;font-weight:600!important;font-size:0.88rem!important;border-radius:2px!important;padding:13px 26px!important;letter-spacing:0.02em!important;}
+.sib-form-block__button:hover{background:#E0C079!important;}
+.sib-form{background:transparent!important;}
+.sib-form-block p,.sib-form-block div,.entry__label,.entry__specification{color:#B9AE9A!important;font-family:"Inter",system-ui,sans-serif!important;}
+.sib-form-block p{font-size:0.9rem!important;font-family:"Inter",system-ui,sans-serif!important;}
+#sib-form-container .sib-form-block:first-child p{font-family:"Fraunces",serif!important;font-size:1.5rem!important;font-weight:600!important;color:#EFE7D6!important;}
+#success-message{background:rgba(86,185,136,0.12)!important;border-color:#5FAE85!important;color:#5FAE85!important;border-radius:2px!important;}
+#error-message{background:rgba(255,73,73,0.1)!important;border-radius:2px!important;}
+</style>
+<div class="sib-form" style="text-align:left;background:transparent;">
+  <div id="sib-form-container" class="sib-form-container">
+    <div id="error-message" class="sib-form-message-panel" style="font-family:Inter,sans-serif;font-size:14px;text-align:left;color:#661d1d;background-color:#ffeded;border-color:#ff4949;border-radius:2px;max-width:100%;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <span class="sib-form-message-panel__inner-text">Nous n&#39;avons pas pu confirmer votre inscription.</span>
+      </div>
+    </div>
+    <div id="success-message" class="sib-form-message-panel" style="font-family:Inter,sans-serif;font-size:14px;text-align:left;color:#085229;background-color:#e7faf0;border-color:#13ce66;border-radius:2px;max-width:100%;">
+      <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+        <span class="sib-form-message-panel__inner-text">✓ Vérifiez votre email pour confirmer et recevoir le guide.</span>
+      </div>
+    </div>
+    <div id="sib-container" class="sib-container--large sib-container--vertical" style="max-width:100%;text-align:left;background:transparent;border-width:0;direction:ltr">
+      <form id="sib-form" method="POST" action="https://6b9027d6.sibforms.com/serve/MUIFAHvTyKzDAVVpS1FIUB2jWgYK_-6wGKwYTnGjVM8e9b4oaqAFxyrO3kz5faZMYl2KgjLaY5l5yarj76B9I-Lcp1MCQy_oSYgNN3npPfprTjhd0Hr5_PXyGjdxiBezDLejufabB6CiOl3cdB8IEtROl-rbrRt9PFdExXYV2Y81ZS20Iw1DBocl33DVL2VQrOBdMuWw6fkG1JQBWg==" data-type="subscription">
+        <div style="padding:8px 0;">
+          <div class="sib-form-block" style="font-size:1.5rem;font-weight:600;text-align:left;color:#EFE7D6;background:transparent;">
+            <p>Recevez le guide gratuit</p>
+          </div>
+        </div>
+        <div style="padding:8px 0;">
+          <div class="sib-form-block" style="font-size:0.9rem;text-align:left;color:#B9AE9A;background:transparent;">
+            <div class="sib-text-form-block">
+              <p>Entrez votre email — le PDF part en moins d'une minute.</p>
+            </div>
+          </div>
+        </div>
+        <div style="padding:8px 0;">
+          <div class="sib-input sib-form-block">
+            <div class="form__entry entry_block">
+              <div class="form__label-row">
+                <div class="entry__field">
+                  <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="votre@email.com" data-required="true" required/>
+                </div>
+              </div>
+              <label class="entry__error entry__error--primary" style="font-size:13px;color:#ff4949;"></label>
+            </div>
+          </div>
+        </div>
+        <div style="padding:8px 0;">
+          <div class="sib-form-block" style="text-align:left;">
+            <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:0.88rem;font-weight:600;color:#16130F;background:#C9A24B;border:none;border-radius:2px;padding:13px 26px;cursor:pointer;" form="sib-form" type="submit">
+              Recevoir le guide →
+            </button>
+          </div>
+        </div>
+        <p style="font-size:0.76rem;color:#8A7E6B;margin:8px 0 0;">Gratuit — double opt-in RGPD — désinscription à tout moment.</p>
+        <input type="text" name="email_address_check" value="" class="input--hidden">
+        <input type="hidden" name="locale" value="fr">
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE='Veuillez choisir un code pays';
+  window.LOCALE='fr';
+  window.EMAIL_INVALID_MESSAGE=window.SMS_INVALID_MESSAGE="Email invalide. Vérifiez le format.";
+  window.REQUIRED_ERROR_MESSAGE="Ce champ est obligatoire.";
+  window.GENERIC_INVALID_MESSAGE="Informations invalides.";
+  var AUTOHIDE=Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </div>
 </div></div></section>
 
