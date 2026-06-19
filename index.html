@@ -148,10 +148,30 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 .reveal.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
 </style></head><body>
+<!-- PROMO BAR -->
+<div id="promo-bar" style="background:#C9A24B;color:#16130F;text-align:center;padding:10px 20px;font-family:'Inter',sans-serif;font-size:0.84rem;font-weight:600;letter-spacing:0.03em;position:relative;z-index:100;">
+  <span style="margin-right:8px;">⚡ OFFRE FLASH — Formation Gold à <s style="opacity:.55;font-weight:400;">997€</s> <strong>497€</strong> — Se termine dans</span>
+  <span id="promo-countdown" style="font-variant-numeric:tabular-nums;background:rgba(22,19,15,0.15);padding:3px 10px;border-radius:2px;letter-spacing:0.06em;">--:--:--</span>
+  <a href="https://buy.stripe.com/4gM00lak09LugkMcFr87K05" target="_blank" rel="noopener" style="margin-left:14px;background:#16130F;color:#C9A24B;padding:5px 14px;text-decoration:none;font-size:0.78rem;letter-spacing:0.06em;font-weight:700;">J'en profite →</a>
+</div>
+<script>
+(function(){
+  var end = new Date('2026-06-22T20:59:00Z').getTime();
+  function tick(){
+    var now = Date.now(), diff = end - now;
+    if(diff <= 0){ document.getElementById('promo-bar').style.display='none'; return; }
+    var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+    document.getElementById('promo-countdown').textContent =
+      (h<10?'0':'')+h+'h '+(m<10?'0':'')+m+'m '+(s<10?'0':'')+s+'s';
+  }
+  tick(); setInterval(tick, 1000);
+})();
+</script>
+
 <div class="sig"><span>Le marché récompense la méthode, pas le pari</span></div>
 <header class="nav"><div class="container nav__row">
 <a href="index.html" class="brand"><span class="brand__mark">MA</span><span class="brand__name">Macro<span>Arthur</span></span></a>
-<nav class="nav__links" id="links"><a href="index.html" aria-current="page">Accueil</a><a href="methode.html">La méthode</a><a href="gold.html">Formation Gold</a><a href="offres.html">Offres & Avis</a><a href="a-propos.html">À propos</a><a href="offres.html" class="btn btn--brass nav__cta">Rejoindre le groupe</a></nav>
+<nav class="nav__links" id="links"><a href="index.html" aria-current="page">Accueil</a><a href="methode.html">La méthode</a><a href="gold.html">Formation Gold</a><a href="offres.html">Offres &amp; Avis</a><a href="a-propos.html">À propos</a><a href="offres.html" class="btn btn--brass nav__cta">Rejoindre le groupe</a></nav>
 <button class="nav__toggle" id="tog" aria-label="Menu" aria-expanded="false">&#9776;</button>
 </div></header>
 <main>
