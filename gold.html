@@ -148,25 +148,6 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 .reveal.in{opacity:1;transform:none;}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;}}
 </style></head><body>
-<!-- PROMO BAR -->
-<div id="promo-bar" style="background:#C9A24B;color:#16130F;text-align:center;padding:10px 20px;font-family:'Inter',sans-serif;font-size:0.84rem;font-weight:600;letter-spacing:0.03em;position:relative;z-index:100;">
-  <span style="margin-right:8px;">⚡ OFFRE FLASH — Formation Gold à <s style="opacity:.55;font-weight:400;">997€</s> <strong>497€</strong> — Se termine dans</span>
-  <span id="promo-countdown" style="font-variant-numeric:tabular-nums;background:rgba(22,19,15,0.15);padding:3px 10px;border-radius:2px;letter-spacing:0.06em;">--:--:--</span>
-  <a href="https://buy.stripe.com/4gM00lak09LugkMcFr87K05" target="_blank" rel="noopener" style="margin-left:14px;background:#16130F;color:#C9A24B;padding:5px 14px;text-decoration:none;font-size:0.78rem;letter-spacing:0.06em;font-weight:700;">J'en profite →</a>
-</div>
-<script>
-(function(){
-  var end = new Date('2026-06-22T20:59:00Z').getTime();
-  function tick(){
-    var now = Date.now(), diff = end - now;
-    if(diff <= 0){ document.getElementById('promo-bar').style.display='none'; return; }
-    var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-    document.getElementById('promo-countdown').textContent =
-      (h<10?'0':'')+h+'h '+(m<10?'0':'')+m+'m '+(s<10?'0':'')+s+'s';
-  }
-  tick(); setInterval(tick, 1000);
-})();
-</script>
 <div class="sig"><span>Le marché récompense la méthode, pas le pari</span></div>
 <header class="nav"><div class="container nav__row">
 <a href="index.html" class="brand"><span class="brand__mark">MA</span><span class="brand__name">Macro<span>Arthur</span></span></a>
@@ -189,28 +170,14 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 <div class="price price--feat">
 <span class="price__badge">Formation complète</span>
 <p class="price__name">Pack Gold</p>
-<p class="price__p" style="gap:10px;flex-wrap:wrap;"><s style="opacity:.5;font-weight:400;font-size:1.7rem;text-decoration:line-through;">997 €</s> <strong style="color:var(--brass);">497 €</strong> <small style="color:var(--taupe);">/ accès complet</small></p>
-<div style="text-align:center;margin:10px 0 4px;font-size:0.86rem;color:var(--bone-dim);">⚡ Offre flash — se termine dans <span id="gold-countdown" style="font-weight:700;color:var(--brass);font-variant-numeric:tabular-nums;">--:--:--</span></div>
+<p class="price__p">997 € <small style="color:var(--taupe);">/ accès complet</small></p>
 <p>Cinq sessions structurées, plus les vidéos de support à revoir à votre rythme.</p>
 <ul><li>5 sessions de formation</li><li>Vidéos de support incluses</li><li>Cadre de lecture liquidité appliqué au Gold</li><li>Discipline &amp; gestion du risque</li></ul>
-<a href="https://buy.stripe.com/4gM00lak09LugkMcFr87K05" target="_blank" rel="noopener" class="btn btn--brass btn--block">Accéder à la formation →</a>
+<a href="https://buy.stripe.com/8x214pak0f5Ob0s0WJ87K06" target="_blank" rel="noopener" class="btn btn--brass btn--block">Accéder à la formation →</a>
 </div>
 </div>
 </div></section>
-<script>
-(function(){
-  var end = new Date('2026-06-22T20:59:00Z').getTime();
-  function tick(){
-    var now = Date.now(), diff = end - now;
-    var el = document.getElementById('gold-countdown');
-    if(!el) return;
-    if(diff <= 0){ el.closest('div[style]').style.display='none'; return; }
-    var h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-    el.textContent = (h<10?'0':'')+h+'h '+(m<10?'0':'')+m+'m '+(s<10?'0':'')+s+'s';
-  }
-  tick(); setInterval(tick, 1000);
-})();
-</script>
+
 
 <section class="alt"><div class="container">
 <div class="head reveal"><p class="kicker">Ce que couvre la formation</p><h2>Un cadre de lecture, pas une promesse de gains</h2></div>
