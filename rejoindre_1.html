@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MacroArthur — Accès groupe</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #16130F; color: #EFE7D6; font-family: 'Georgia', serif; overflow: hidden; height: 100vh; width: 100vw; }
+  #matrix-canvas { position: fixed; inset: 0; z-index: 1; opacity: 1; transition: opacity 2s ease; }
+  #matrix-canvas.dimmed { opacity: 0.12; }
+  #content { position: fixed; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px 24px; opacity: 0; transform: translateY(20px); transition: opacity 1.6s ease 0.6s, transform 1.6s ease 0.6s; pointer-events: none; }
+  #content.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 48px; }
+  .logo-mark { width: 44px; height: 44px; border: 1px solid #C9A24B; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #C9A24B; letter-spacing: 0.05em; background: rgba(22,19,15,0.9); }
+  .logo-name { font-size: 17px; letter-spacing: 0.1em; text-transform: uppercase; color: #EFE7D6; }
+  .logo-name span { color: #C9A24B; }
+  .greeting { font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 400; color: #EFE7D6; letter-spacing: -0.01em; text-align: center; margin-bottom: 10px; line-height: 1.1; }
+  .greeting em { font-style: italic; color: #C9A24B; }
+  .separator { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, #C9A24B, transparent); margin: 28px auto; }
+  .subtitle { font-family: 'Inter', Arial, sans-serif; font-size: clamp(0.92rem, 2.4vw, 1.05rem); color: #B9AE9A; text-align: center; line-height: 1.85; max-width: 460px; margin-bottom: 40px; background: rgba(22,19,15,0.8); padding: 20px 28px; border: 1px solid rgba(201,162,75,0.2); border-radius: 2px; }
+  .subtitle strong { color: #EFE7D6; font-weight: 600; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #C9A24B; color: #16130F; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 36px; text-decoration: none; letter-spacing: 0.04em; border-radius: 2px; transition: background 0.2s, transform 0.15s; margin-bottom: 14px; }
+  .cta-btn:hover { background: #E0C079; transform: translateY(-2px); }
+  .cta-note { font-family: 'Inter', Arial, sans-serif; font-size: 0.72rem; color: #8A7E6B; text-align: center; letter-spacing: 0.08em; text-transform: uppercase; }
+  .disc { position: fixed; bottom: 16px; left: 0; right: 0; text-align: center; font-family: 'Inter', Arial, sans-serif; font-size: 0.62rem; color: rgba(138,126,107,0.6); letter-spacing: 0.06em; z-index: 3; padding: 0 24px; }
+</style>
+</head>
+<body>
+
+<canvas id="matrix-canvas"></canvas>
+
+<div id="content">
+  <div class="logo">
+    <div class="logo-mark">MA</div>
+    <div class="logo-name">MACRO<span>ARTHUR</span></div>
+  </div>
+  <h1 class="greeting">Hello, <em id="prenom-display"></em></h1>
+  <div class="separator"></div>
+  <div class="subtitle">
+    Ton accès au groupe est <strong>immédiat</strong>.<br>
+    Arthur consultera tes réponses et tu recevras<br>
+    tes <strong>instructions personnalisées sous 24h</strong>.
+  </div>
+  <a href="https://telegram.me/+k2znDJqlzE5hODc0" class="cta-btn">Intégrer le groupe →</a>
+  <p class="cta-note">Approbation manuelle par Arthur</p>
+</div>
+
+<p class="disc">Contenu éducatif uniquement — ne constitue pas un conseil en investissement · MacroArthur</p>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const prenom = params.get('prenom') || '';
+document.getElementById('prenom-display').textContent = prenom;
+
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+const CHARS = '0123456789$€£¥%ΔαβδσμΩ≈∑∫+-×XAUUSDNASGOLDBITMACRO';
+const FS = 14;
+let W, H, cols, drops;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  cols = Math.floor(W / FS);
+  drops = Array.from({ length: cols }, () => Math.random() * -60);
+}
+resize();
+window.addEventListener('resize', resize);
+
+function draw() {
+  ctx.fillStyle = 'rgba(22,19,15,0.18)';
+  ctx.fillRect(0, 0, W, H);
+  ctx.font = FS + "px 'Courier New', monospace";
+  for (let i = 0; i < cols; i++) {
+    const y = drops[i];
+    ctx.fillStyle = '#EFE7D6';
+    ctx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * FS, y * FS);
+    ctx.fillStyle = '#C9A24B';
+    for (let t = 1; t < 5; t++) ctx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * FS, (y - t) * FS);
+    ctx.fillStyle = 'rgba(201,162,75,0.22)';
+    for (let t = 5; t < 14; t++) ctx.fillText(CHARS[Math.floor(Math.random() * CHARS.length)], i * FS, (y - t) * FS);
+    if (y * FS > H && Math.random() > 0.97) drops[i] = 0;
+    drops[i] += 0.55;
+  }
+}
+
+let elapsed = 0, done = false;
+function loop() {
+  draw();
+  elapsed += 16;
+  if (!done && elapsed > 3200) {
+    done = true;
+    canvas.classList.add('dimmed');
+    document.getElementById('content').classList.add('visible');
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
+</body>
+</html>
