@@ -252,16 +252,23 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
     <div style="position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,162,75,0.12) 0%,transparent 65%);pointer-events:none;transition:opacity 0.3s;" id="summary-glow"></div>
     <div style="font-size:1.8rem;color:var(--brass);letter-spacing:6px;margin-bottom:4px;">★★★★★</div>
     <div style="font-family:var(--display);font-size:3.2rem;color:var(--bone);line-height:1;margin-bottom:6px;">5.0</div>
-    <div style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--taupe);">9 avis vérifiés</div>
+    <div style="font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--taupe);">14 avis vérifiés</div>
   </div>
 </div>
 
-<!-- FAN DE CARTES -->
-<div id="fan-wrap" style="position:relative;width:100vw;left:50%;transform:translateX(-50%);height:380px;overflow:visible;margin-bottom:36px;">
+<!-- GALERIE HORIZONTALE -->
+<div style="position:relative;">
+  <button id="rev-prev" aria-label="Avis précédent" style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);z-index:20;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-brass);background:var(--ink);color:var(--brass);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;">&#8592;</button>
+  <button id="rev-next" aria-label="Avis suivant" style="position:absolute;right:-6px;top:50%;transform:translateY(-50%);z-index:20;width:42px;height:42px;border-radius:50%;border:1px solid var(--line-brass);background:var(--ink);color:var(--brass);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;">&#8594;</button>
+
+  <div id="rev-track" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 4px 20px;-webkit-overflow-scrolling:touch;">
+  </div>
+
+  <div id="rev-dots" style="display:flex;justify-content:center;gap:7px;margin-top:6px;"></div>
 </div>
 
 <!-- CTA AVIS -->
-<div style="text-align:center;">
+<div style="text-align:center;margin-top:30px;">
   <a href="https://senja.io/p/macroarthur/r/8NhlbU" target="_blank" rel="noopener" class="btn btn--line" style="font-size:0.82rem;letter-spacing:0.06em;">Laisser un avis →</a>
 </div>
 
@@ -269,53 +276,26 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 </section>
 
 <style>
-.fan-card {
-  position:absolute;
-  width:220px;
+#rev-track{scrollbar-width:none;}
+#rev-track::-webkit-scrollbar{display:none;}
+.rev-card{
+  flex:0 0 300px;
+  scroll-snap-align:center;
   background:var(--ink-2);
   border:1px solid rgba(239,231,214,0.08);
-  padding:20px 18px;
-  transform-origin:bottom center;
-  transition:transform 0.4s cubic-bezier(.22,.68,0,1.3),box-shadow 0.3s;
-  cursor:pointer;
+  padding:26px 24px;
+  position:relative;
   overflow:hidden;
+  transition:border-color .2s;
 }
-.fan-card::before {
-  content:'';
-  position:absolute;
-  inset:-2px;
-  background:conic-gradient(from var(--border-angle,0deg) at 50% 50%,transparent 55%,#C9A24B 68%,#E0C079 75%,#C9A24B 82%,transparent 93%);
-  opacity:0;
-  transition:opacity 0.4s;
-  z-index:-1;
-}
-.fan-card:hover::before {
-  opacity:1;
-  animation:rotate-glow 2s linear infinite;
-}
-.fan-card .glow-spot {
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,162,75,0.18) 0%,transparent 65%);
-  opacity:0;
-  transition:opacity 0.3s;
-  pointer-events:none;
-}
-.fan-card:hover .glow-spot {opacity:1;}
-.fan-card:hover {
-  z-index:100 !important;
-  border-color:rgba(201,162,75,0.55);
-  box-shadow:0 24px 60px rgba(0,0,0,0.7),0 0 40px rgba(201,162,75,0.12);
-}
-@keyframes rotate-glow {
-  from{--border-angle:0deg;}
-  to{--border-angle:360deg;}
-}
-@property --border-angle {
-  syntax:'<angle>';
-  initial-value:0deg;
-  inherits:false;
-}
+.rev-card:hover{border-color:rgba(201,162,75,0.4);}
+@media(max-width:640px){.rev-card{flex-basis:82vw;}}
+#rev-prev:hover,#rev-next:hover{border-color:var(--brass);background:var(--ink-2);}
+#rev-prev:disabled,#rev-next:disabled{opacity:0.3;cursor:default;}
+#rev-prev:disabled:hover,#rev-next:disabled:hover{border-color:var(--line-brass);background:var(--ink);}
+.rev-dot{width:6px;height:6px;border-radius:50%;background:rgba(201,162,75,0.25);border:none;padding:0;cursor:pointer;transition:background .2s,transform .2s;}
+.rev-dot.active{background:var(--brass);transform:scale(1.3);}
+@media(max-width:820px){#rev-prev,#rev-next{display:none;}}
 </style>
 
 <script>
@@ -330,53 +310,63 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
   {av:"GJ",name:"Gui junior",lang:"FR",text:"Arthur est pédagogue et maîtrise très bien son sujet. En moins d'un mois j'ai progressé plus qu'en un an seul."},
   {av:"FR",name:"Francois",lang:"FR",text:"J'ai été bluffé par le professionnalisme et la simplicité avec laquelle Arthur explique des concepts complexes."},
   {av:"PP",name:"Pierre P",lang:"FR",text:"Pédagogue, patient et réactif. Arthur sait de quoi il parle et ça se voit sur mes investissements."},
+  {av:"RA",name:"Rayanis",lang:"FR",text:"Bonjour, je me présente Rayanis passionnée du trading. Chez Arthur dans son groupe tout les jours il partage sa macro analyse - analyse du graphique aussi plein de pdf interessant autant que pour les débutant et expérimenté. Beaucoup de plus-value et de partage. Merci Arthur"},
+  {av:"MY",name:"Mehdi El Yaakoubi",lang:"FR",text:"Arthur est une personne compétente digne de confiance qui cherchera à vous faire progresser dans votre autonomie du trading plutôt que vous donner des signaux bidons. Je recommande à 100%"},
+  {av:"AN",name:"Anthony",lang:"FR",text:"C'est un mec honnête pas un scameur, apprend bien c'est un bon"},
+  {av:"LE",name:"Leni",lang:"FR",text:"Depuis que je suis dans le groupe mon trading a changé, je lis mieux le marché et ce que me disent les bougies m'a pas mal aidé et je trade la liquidité dans ce groupe. Il y a beaucoup de plus-value gratuitement avec une communauté active et qui cherche à s'aider entre elle. Je recommande."},
+  {av:"BE",name:"Ben",lang:"FR",text:"Il m'a ouvert l'esprit sur le marché LTF. Il m'a permis en peu de temps d'augmenter considérablement mon risque reward"},
 ];
-  var wrap = document.getElementById('fan-wrap');
-  var W = wrap.offsetWidth || window.innerWidth;
-  var n = reviews.length;
-  var radius = W * 0.62;
-  var centerX = W / 2;
-  var centerY = wrap.offsetHeight + radius - 40;
-  var spanAngle = 68;
-  var startAngle = -spanAngle/2;
-  var step = spanAngle/(n-1);
+  var track = document.getElementById('rev-track');
+  var dotsWrap = document.getElementById('rev-dots');
+  var prevBtn = document.getElementById('rev-prev');
+  var nextBtn = document.getElementById('rev-next');
 
   reviews.forEach(function(r,i){
-    var angleDeg = startAngle + i * step;
-    var angleRad = angleDeg * Math.PI / 180;
-    var x = centerX + radius * Math.sin(angleRad);
-    var y = centerY - radius * Math.cos(angleRad);
-
     var card = document.createElement('div');
-    card.className = 'fan-card';
-    card.style.left = (x - 110) + 'px';
-    card.style.top  = (y - 300) + 'px';
-    card.style.transform = 'rotate('+angleDeg+'deg)';
-    card.style.zIndex = 10 + i;
-
+    card.className = 'rev-card';
     card.innerHTML =
-      '<div class="glow-spot"></div>'+
-      '<div style="display:flex;align-items:center;gap:9px;margin-bottom:12px;">'+
-        '<div style="width:32px;height:32px;border-radius:50%;background:rgba(201,162,75,0.12);border:1px solid rgba(201,162,75,0.3);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:#C9A24B;flex-shrink:0;">'+r.av+'</div>'+
-        '<div><div style="font-size:0.82rem;font-weight:600;color:#EFE7D6;">'+r.name+'</div><div style="color:#C9A24B;font-size:0.75rem;">★★★★★</div></div>'+
-        '<span style="margin-left:auto;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:#8A7E6B;">'+r.lang+'</span>'+
+      '<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">'+
+        '<div style="width:36px;height:36px;border-radius:50%;background:rgba(201,162,75,0.12);border:1px solid rgba(201,162,75,0.3);display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:700;color:#C9A24B;flex-shrink:0;">'+r.av+'</div>'+
+        '<div><div style="font-size:0.86rem;font-weight:600;color:#EFE7D6;">'+r.name+'</div><div style="color:#C9A24B;font-size:0.78rem;">★★★★★</div></div>'+
+        '<span style="margin-left:auto;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:#8A7E6B;">'+r.lang+'</span>'+
       '</div>'+
-      '<p style="font-size:0.76rem;color:#B9AE9A;line-height:1.65;margin:0;">«&nbsp;'+r.text+'&nbsp;»</p>';
+      '<p style="font-size:0.82rem;color:#B9AE9A;line-height:1.7;margin:0;">«&nbsp;'+r.text+'&nbsp;»</p>';
+    track.appendChild(card);
 
-    card.addEventListener('mousemove',function(e){
-      var rect=card.getBoundingClientRect();
-      card.style.setProperty('--mx',((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%');
-      card.style.setProperty('--my',((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%');
-    });
-    card.addEventListener('mouseenter',function(){
-      card.style.transform='rotate('+angleDeg+'deg) translateY(-44px) scale(1.05)';
-    });
-    card.addEventListener('mouseleave',function(){
-      card.style.transform='rotate('+angleDeg+'deg)';
-    });
-
-    wrap.appendChild(card);
+    var dot = document.createElement('button');
+    dot.className = 'rev-dot' + (i===0?' active':'');
+    dot.setAttribute('aria-label','Aller à l\'avis '+(i+1));
+    dot.addEventListener('click',function(){ scrollToCard(i); });
+    dotsWrap.appendChild(dot);
   });
+
+  var dots = dotsWrap.querySelectorAll('.rev-dot');
+  var cards = track.querySelectorAll('.rev-card');
+
+  function cardStep(){
+    return cards[0].getBoundingClientRect().width + 20;
+  }
+  function scrollToCard(i){
+    track.scrollTo({left: i * cardStep(), behavior:'smooth'});
+  }
+  function currentIndex(){
+    return Math.round(track.scrollLeft / cardStep());
+  }
+  function updateUI(){
+    var idx = Math.max(0, Math.min(reviews.length-1, currentIndex()));
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===idx); });
+    prevBtn.disabled = idx <= 0;
+    nextBtn.disabled = idx >= reviews.length-1;
+  }
+
+  prevBtn.addEventListener('click', function(){ scrollToCard(Math.max(0, currentIndex()-1)); });
+  nextBtn.addEventListener('click', function(){ scrollToCard(Math.min(reviews.length-1, currentIndex()+1)); });
+  track.addEventListener('scroll', function(){
+    clearTimeout(track._t);
+    track._t = setTimeout(updateUI, 80);
+  });
+  window.addEventListener('resize', updateUI);
+  updateUI();
 })();
 </script><section class="alt"><div class="container">
 <div class="head reveal"><p class="kicker">FAQ</p><h2>Les questions qu'on me pose</h2></div>
