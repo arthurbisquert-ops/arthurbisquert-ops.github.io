@@ -59,7 +59,7 @@ section{padding:96px 0;}@media(max-width:640px){section{padding:62px 0;}}
 .hero--text .hero__inner{min-height:auto;}
 .hero--text .hero__text{padding:88px 0 40px;}
 /* phases */
-.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
 @media(max-width:820px){.phases{grid-template-columns:1fr;}}
 .phase{background:var(--ink);padding:40px 34px;}
 .alt .phase{background:var(--ink-2);}
@@ -183,9 +183,37 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
 <h1 style="font-family:var(--display);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;color:var(--bone);text-align:center;margin-bottom:8px;">L'écosystème MacroArthur</h1>
 <p style="font-size:0.88rem;color:var(--taupe);text-align:center;margin-bottom:36px;">De la découverte au suivi individuel.</p>
 
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+<div style="display:flex;flex-direction:column;gap:16px;">
 
-  <!-- Gratuit -->
+  <!-- ELITE — EN HAUT, CENTRÉ, LARGE -->
+  <div style="display:flex;justify-content:center;">
+    <div style="width:calc(50% + 5px);background:linear-gradient(160deg,#1a1510,#1F1B15);border:1px solid #C9A24B;padding:28px 28px;display:flex;flex-direction:column;gap:12px;position:relative;">
+      <span style="position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,#C9A24B,#E0C079);color:#16130F;font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:4px 16px;white-space:nowrap;">✦ Nouveauté — Meilleure valeur</span>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div>
+          <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe);margin:0 0 8px;">Offre Elite</p>
+          <p style="font-family:var(--display);font-size:2.2rem;color:var(--bone);line-height:1;margin:0 0 6px;">1 297€ <small style="font-family:'Inter',sans-serif;font-size:0.8rem;color:var(--taupe);font-weight:400;">/ tout inclus</small></p>
+          <div style="display:flex;align-items:center;gap:8px;font-size:0.72rem;color:var(--taupe);">
+            <s style="opacity:0.6;">1 394€</s>
+            <span style="color:var(--brass);font-weight:600;">— 97€ offerts</span>
+          </div>
+        </div>
+        <div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
+            <li style="font-size:0.78rem;color:var(--bone-dim);padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--brass);">—</span>Formation LIT Awakening complète</li>
+            <li style="font-size:0.78rem;color:var(--bone-dim);padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--brass);">—</span>1 mois de mentorat 1-on-1</li>
+            <li style="font-size:0.78rem;color:var(--bone-dim);padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--brass);">—</span>Call diagnostic 45 min</li>
+            <li style="font-size:0.78rem;color:var(--bone-dim);padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--brass);">—</span>Accès à vie sur la formation</li>
+          </ul>
+        </div>
+      </div>
+      <a href="https://buy.stripe.com/9B66oJeAgaPy6KccFr87K0c" target="_blank" rel="noopener" class="btn btn--brass btn--block" style="font-size:0.9rem;padding:14px;margin-top:4px;">Accéder à l'offre Elite →</a>
+    </div>
+  </div>
+
+  <!-- 4 CARDS EN DESSOUS -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+<!-- Gratuit -->
   <div style="background:var(--ink-2);border:1px solid var(--line);padding:22px 18px;display:flex;flex-direction:column;gap:10px;position:relative;">
     <p style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe);margin:0;">Le Groupe</p>
     <p style="font-family:var(--display);font-size:1.65rem;color:var(--bone);line-height:1;margin:0;">Gratuit</p>
@@ -255,6 +283,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
       <li style="font-size:0.74rem;color:var(--bone-dim);padding-left:12px;position:relative;line-height:1.4;"><span style="position:absolute;left:0;color:var(--brass);">—</span>Accès à vie</li>
     </ul>
     <a href="gold.html" class="btn btn--line btn--block" style="font-size:0.76rem;padding:10px;margin-top:auto;">Accéder →</a>
+  </div>
   </div>
 
 </div>
