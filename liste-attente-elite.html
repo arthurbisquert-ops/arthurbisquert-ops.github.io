@@ -9,6 +9,7 @@
     --ink:#16130F;
     --panel:#1F1B15;
     --brass:#C9A24B;
+    --brass-light:#E0C079;
     --red:#B3261E;
     --red-light:#E5847C;
     --bone:#EFE7D6;
@@ -60,52 +61,41 @@
     max-width:52ch;
   }
 
+  /* CAPACITY / SOCIAL PROOF STRIP */
   .capacity{
-    display:flex;
-    align-items:center;
-    gap:28px;
     background:linear-gradient(135deg, var(--panel) 0%, #2a1712 100%);
     border:1px solid var(--red);
     box-shadow:0 0 24px rgba(179,38,30,0.15);
-    padding:26px 28px;
+    padding:28px 30px;
     margin:32px 0 36px;
   }
-  .capacity__num{
+  .capacity__headline{
     font-family:Georgia,'Fraunces',serif;
-    font-size:3.4rem;
+    font-size:1.5rem;
     color:var(--red-light);
-    line-height:1;
-    flex-shrink:0;
+    line-height:1.25;
+    margin-bottom:14px;
   }
-  .capacity__num span{font-size:1.3rem;color:var(--dim);}
-  .capacity__text p:first-child{
-    font-size:0.95rem;
-    color:var(--bone);
-    font-weight:700;
-    margin-bottom:4px;
+  .capacity__headline strong{color:var(--red-light);}
+  .capacity__sub{
+    font-size:0.92rem;
+    color:var(--muted);
+    line-height:1.6;
   }
-  .capacity__text p:last-child{font-size:0.86rem;color:var(--muted);}
-  .dots{display:flex;gap:6px;margin-top:10px;}
-  .dot{width:10px;height:10px;border-radius:50%;background:var(--red);}
+  .capacity__sub + .capacity__sub{margin-top:2px;}
 
+  /* URGENCY LINE — retour aux couleurs normales du site */
   .urgency{
     font-size:1.1rem;
-    color:var(--red-light);
+    color:var(--brass);
     font-family:Georgia,'Fraunces',serif;
     font-style:italic;
-    margin-bottom:20px;
-    padding-left:18px;
-    border-left:2px solid var(--red);
-  }
-
-  .covers{
-    font-size:0.86rem;
-    color:var(--dim);
     margin-bottom:44px;
     padding-left:18px;
+    border-left:2px solid var(--brass);
   }
-  .covers strong{color:var(--muted);}
 
+  /* OPTIONS */
   .options{display:flex;flex-direction:column;gap:18px;margin-bottom:48px;}
   .option{
     background:var(--panel);
@@ -114,15 +104,15 @@
     position:relative;
   }
   .option--priority{
-    border-color:var(--red);
-    background:linear-gradient(160deg, var(--panel) 0%, #2a1712 100%);
-    box-shadow:0 0 20px rgba(179,38,30,0.12);
+    border-color:var(--brass);
+    background:linear-gradient(160deg, var(--panel) 0%, #2a2318 100%);
+    box-shadow:none;
   }
   .option__badge{
     display:inline-block;
     font-size:0.72rem;
-    color:#fff;
-    background:var(--red);
+    color:var(--ink);
+    background:var(--brass);
     padding:5px 12px;
     margin-bottom:16px;
     font-weight:700;
@@ -145,11 +135,11 @@
     color:var(--dim);
     margin-bottom:20px;
   }
-  .option .price-line strong{color:var(--red-light);font-size:1.08rem;}
+  .option .price-line strong{color:var(--brass);font-size:1.08rem;}
 
   .perks{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-direction:column;gap:7px;}
   .perks li{font-size:0.88rem;color:var(--muted);padding-left:16px;position:relative;}
-  .perks li::before{content:"—";position:absolute;left:0;color:var(--red-light);}
+  .perks li::before{content:"—";position:absolute;left:0;color:var(--brass);}
 
   .btn{
     display:inline-block;
@@ -161,10 +151,10 @@
     text-align:center;
     width:100%;
   }
-  .btn--red{background:var(--red);color:#fff;}
-  .btn--red:hover{background:#c9362d;}
+  .btn--brass{background:var(--brass);color:var(--ink);}
+  .btn--brass:hover{background:var(--brass-light);}
   .btn--ghost{background:transparent;color:var(--bone);border:1px solid var(--line);cursor:pointer;width:100%;}
-  .btn--ghost:hover{border-color:var(--red);}
+  .btn--ghost:hover{border-color:var(--brass);}
 
   form{display:flex;flex-direction:column;gap:14px;}
   label{font-size:0.78rem;color:var(--dim);}
@@ -177,8 +167,9 @@
     font-family:inherit;
     width:100%;
   }
-  input:focus{outline:1px solid var(--red);}
+  input:focus{outline:1px solid var(--brass);}
 
+  /* FAQ */
   .faq{margin-top:56px;border-top:1px solid var(--line);padding-top:40px;}
   .faq h3{font-family:Georgia,'Fraunces',serif;font-size:1.05rem;color:var(--bone);margin-bottom:8px;}
   .faq p{font-size:0.88rem;color:var(--muted);margin-bottom:22px;}
@@ -190,10 +181,6 @@
     border-top:1px solid var(--line);
     padding-top:20px;
     line-height:1.7;
-  }
-
-  @media (max-width:520px){
-    .capacity{flex-direction:column;align-items:flex-start;gap:14px;}
   }
 </style>
 </head>
@@ -208,36 +195,32 @@
   </div>
 
   <div class="capacity">
-    <div class="capacity__num">10<span>personnes sont passé à l'action !</span></div>
-    <div class="capacity__text">
-      <p>Notre formation est victime de son succès !</p>
-      <p>Prochaine session à partir du 25 octobre 2026</p>
-      <div class="dots">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      </div>
-    </div>
+    <p class="capacity__headline"><strong>10 personnes</strong> sont passées à l'action !</p>
+    <p class="capacity__sub">Notre formation est victime de son succès !</p>
+    <p class="capacity__sub">Prochaine session à partir du 25 octobre 2026</p>
   </div>
 
   <p class="urgency">Celui qui paie en premier passe en premier, pas celui qui s'inscrit en premier.</p>
 
+  <div class="options">
+
     <div class="option option--priority">
       <span class="option__badge">🔓 Débloquer ma place</span>
       <h2>Je réserve ma place</h2>
-      <p>Ta place pour le 25 octobre est validée automatiquement si tu choisis de vérser un acompte avant tous les simples inscrits. Et tu ne restes pas les mains vides en attendant :</p>
+      <p>Ta place pour le 25 octobre est validée automatiquement si tu choisis de verser un acompte. Et tu ne restes pas les mains vides en attendant :</p>
       <ul class="perks">
-        <li>  Accès immédiat aux vidéos LIT Awakening</li>
-        <li>  Place garantie sur l'Offre Elite</li>
-        <li>  Acompte intégralement déductible du prix final</li>
+        <li>Accès immédiat aux vidéos LIT Awakening</li>
+        <li>Place garantie sur l'Offre Elite</li>
+        <li>Acompte intégralement déductible du prix final</li>
       </ul>
-      <p class="price-line"><strong>400€</strong> déductibles du prix total (jusqu'à 1 297€ pour l'Elite)</p>
-      <a href="https://buy.stripe.com/dRm9AV3VC1eYgkM34R87K0e" class="btn btn--red" target="_blank">Je sécurise ma place maintenant →</a>
+      <p class="price-line"><strong>400€</strong> déductibles du prix total (1 297€ pour l'Elite)</p>
+      <a href="https://buy.stripe.com/dRm9AV3VC1eYgkM34R87K0e" class="btn btn--brass" target="_blank">Je sécurise ma place maintenant →</a>
     </div>
 
     <div class="option">
       <span class="option__badge option__badge--muted">Sans acompte</span>
       <h2>Je m'inscris sur la liste, sans engagement</h2>
-      <p>Tu seras recontacté(e) par nos équipes si une place se libère ou à l'ouverture de la session suivante après celles et ceux qui auront versé un acompte.</p>
+      <p>Tu seras recontacté(e) par nos équipes après celles et ceux qui auront versé un acompte.</p>
 
       <!-- Emplacement formulaire Brevo — remplacer par le code d'intégration du formulaire -->
       <form>
@@ -256,20 +239,6 @@
     </div>
 
   </div>
-
-  <div class="faq">
-    <h3>Comment est déterminé l'ordre ?</h3>
-    <p>Les acomptes sont classés par ordre chronologique de paiement. Les inscriptions simples suivent, dans l'ordre d'inscription, une fois les places à acompte attribuées.</p>
-
-    <h3>Que reçois-je immédiatement après l'acompte ?</h3>
-    <p>L'accès complet à la formation LIT Awakening, dès la confirmation du paiement. Le solde restant est à régler à l'ouverture de ta session de mentorat.</p>
-
-    <h3>Que se passe-t-il si aucune place ne se libère avant la date indiquée ?</h3>
-    <p>Ton acompte reste valable pour la session suivante, ou peut être remboursé sur simple demande. L'accès à LIT Awakening reste acquis dans tous les cas.</p>
-  </div>
-
-  <p class="disclaimer">Contenu éducatif uniquement. Le mentorat et l'offre Elite incluent un accompagnement personnalisé et ne constituent pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures.</p>
-
 </div>
 </body>
 </html>
