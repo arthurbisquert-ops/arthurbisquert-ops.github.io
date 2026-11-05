@@ -190,15 +190,11 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
   <!-- ELITE — EN HAUT, CENTRÉ, LARGE -->
   <div style="display:flex;justify-content:center;">
     <div class="elite-card" style="width:calc(50% + 5px);background:linear-gradient(160deg,#1a1510,#1F1B15);border:1.5px solid #B3261E;padding:28px 28px;display:flex;flex-direction:column;gap:12px;position:relative;box-shadow:0 0 28px rgba(179,38,30,0.18);">
-      <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-3deg);background:#B3261E;color:#fff;font-size:0.78rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:7px 22px;white-space:nowrap;box-shadow:0 4px 18px rgba(179,38,30,0.55);border:1px solid rgba(255,255,255,0.25);">⏳ Dernière semaine à 1 297€</span>
+      <span style="position:absolute;top:-16px;left:50%;transform:translateX(-50%) rotate(-3deg);background:#B3261E;color:#fff;font-size:0.78rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;padding:7px 22px;white-space:nowrap;box-shadow:0 4px 18px rgba(179,38,30,0.55);border:1px solid rgba(255,255,255,0.25);">Offre Elite</span>
       <div class="elite-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
         <div>
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe);margin:0 0 8px;">Offre Elite</p>
-          <p style="font-family:var(--display);font-size:2.2rem;color:var(--bone);line-height:1;margin:0 0 6px;">1 297€ <small style="font-family:'Inter',sans-serif;font-size:0.8rem;color:var(--taupe);font-weight:400;">/ tout inclus</small></p>
-          <div style="display:flex;align-items:center;gap:8px;font-size:0.72rem;color:var(--taupe);">
-            <span>Puis</span>
-            <span style="color:#E5847C;font-weight:700;">1 997€ dès le 2 novembre</span>
-          </div>
+          <p style="font-family:var(--display);font-size:2.2rem;color:var(--bone);line-height:1;margin:0 0 6px;">1 997€ <small style="font-family:'Inter',sans-serif;font-size:0.8rem;color:var(--taupe);font-weight:400;">/ tout inclus</small></p>
         </div>
         <div>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px;">
@@ -209,36 +205,8 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
           </ul>
         </div>
       </div>
-      <div id="elite-countdown" style="border:1px solid rgba(179,38,30,0.55);background:rgba(179,38,30,0.08);padding:14px 12px;display:flex;flex-direction:column;gap:10px;align-items:center;">
-        <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#E5847C;margin:0;text-align:center;">Le prix passe à 1 997€ dans</p>
-        <div style="display:flex;gap:8px;justify-content:center;font-variant-numeric:tabular-nums;">
-          <div style="min-width:58px;text-align:center;"><span id="cd-j" style="display:block;font-family:var(--display);font-size:1.9rem;color:var(--bone);line-height:1;">7</span><span style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe);">jours</span></div>
-          <div style="min-width:58px;text-align:center;"><span id="cd-h" style="display:block;font-family:var(--display);font-size:1.9rem;color:var(--bone);line-height:1;">00</span><span style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe);">heures</span></div>
-          <div style="min-width:58px;text-align:center;"><span id="cd-m" style="display:block;font-family:var(--display);font-size:1.9rem;color:var(--bone);line-height:1;">00</span><span style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe);">min</span></div>
-          <div style="min-width:58px;text-align:center;"><span id="cd-s" style="display:block;font-family:var(--display);font-size:1.9rem;color:#E5847C;line-height:1;">00</span><span style="font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--taupe);">sec</span></div>
-        </div>
-        <p style="font-size:0.7rem;color:var(--taupe);margin:0;text-align:center;">Fin de l'offre : dimanche 1er novembre à 23h59 (heure de Paris) · 3 × 430€ avec Klarna</p>
-      </div>
-      <a href="https://buy.stripe.com/9B66oJeAgaPy6KccFr87K0c" target="_blank" rel="noopener" class="btn btn--block" style="font-size:0.92rem;font-weight:700;padding:15px;margin-top:4px;background:#B3261E;color:#fff;border:none;">Rejoindre l'Offre Elite à 1 297€ →</a>
-      <a href="https://calendly.com/arthurbisquert/30min" target="_blank" rel="noopener" style="font-size:0.76rem;color:var(--taupe);text-align:center;">Une question avant ? Réserver un call de 30 min</a>
-      <script>
-      (function(){
-        var end=Date.UTC(2026,10,1,22,59,0); // dimanche 1er novembre 2026, 23h59 heure de Paris
-        var box=document.getElementById('elite-countdown');
-        function pad(n){return n<10?'0'+n:''+n;}
-        function tick(){
-          var d=end-Date.now();
-          if(d<=0){box.innerHTML='<p style="margin:0;font-size:0.8rem;color:#E5847C;font-weight:700;text-align:center;">L\'offre à 1 297€ est terminée. L\'Offre Elite est désormais à 1 997€.</p>';return;}
-          var s=Math.floor(d/1000);
-          document.getElementById('cd-j').textContent=Math.floor(s/86400);
-          document.getElementById('cd-h').textContent=pad(Math.floor(s%86400/3600));
-          document.getElementById('cd-m').textContent=pad(Math.floor(s%3600/60));
-          document.getElementById('cd-s').textContent=pad(s%60);
-          setTimeout(tick,1000);
-        }
-        tick();
-      })();
-      </script>
+      <a href="https://calendly.com/arthurbisquert/30min" target="_blank" rel="noopener" class="btn btn--block" style="font-size:0.92rem;font-weight:700;padding:15px;margin-top:4px;background:#B3261E;color:#fff;border:none;">Réserver mon call pour l'Offre Elite →</a>
+      <a href="https://calendly.com/arthurbisquert/30min" target="_blank" rel="noopener" style="font-size:0.76rem;color:var(--taupe);text-align:center;">Un call de 30 min avec Arthur pour présenter l'offre</a>
     </div>
   </div>
 
@@ -429,7 +397,7 @@ footer{border-top:1px solid var(--line);padding:60px 0 44px;}
     </div>
     <div class="partner-card__foot">
       <a href="https://geolink.xtb.com/RCGbM" target="_blank" rel="noopener" class="btn btn--line btn--block" style="font-size:0.78rem;padding:10px;">Ouvrir un compte →</a>
-      <p class="partner-card__legal">[X]% des comptes CFD subissent des pertes. Les CFD sont des instruments complexes à effet de levier.</p>
+      <p class="partner-card__legal">79 % des comptes d'investisseurs de détail perdent de l'argent lors de la négociation de CFD avec ce fournisseur. Les CFD sont des instruments complexes à effet de levier.</p>
     </div>
   </div>
 
@@ -546,7 +514,8 @@ function maFaq(btn){
 <a href="https://www.instagram.com/macroarthur/" target="_blank" rel="noopener">Instagram — @macroarthur</a>
 <a href="https://x.com/XrpArthur" target="_blank" rel="noopener">X — @XrpArthur</a></div>
 </div>
-<div class="disc"><b>Avertissement :</b> Le groupe, MacroArthur First et l'Offre Elite donnent accès à un accompagnement à visée exclusivement éducative. Aucun contenu ne constitue un conseil en investissement personnalisé. Tout investissement comporte un risque de perte en capital.</div>
+<div class="disc"><b>XTB :</b> l'offre 0% de commission est dans la limite de 100 000 EUR investis par mois. Toutes les transactions au-dessus de cette limite sont commissionnées de 0,2% (min 10 EUR). Des frais de conversion de devises de 0,5% peuvent s'appliquer. Les instruments financiers que nous proposons sont risqués. Investissez de manière responsable.<br><br><b>Les CFD sont des instruments complexes et présentent un risque élevé de perte rapide en capital en raison de l'effet de levier. 79 % des comptes d'investisseurs de détail perdent de l'argent lors de la négociation de CFD avec ce fournisseur.</b> Vous devez vous assurer que vous comprenez comment les CFD fonctionnent et que vous pouvez vous permettre de prendre le risque élevé de perdre votre argent.</div>
+<div class="disc" style="margin-top:12px;"><b>Avertissement :</b> Le groupe, MacroArthur First et l'Offre Elite donnent accès à un accompagnement à visée exclusivement éducative. Aucun contenu ne constitue un conseil en investissement personnalisé. Tout investissement comporte un risque de perte en capital.</div>
 <div class="foot__bot"><span>© MacroArthur</span><span>Your Wealth. Reimagined.</span></div>
 </div></footer>
 
