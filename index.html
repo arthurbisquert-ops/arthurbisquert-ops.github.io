@@ -169,8 +169,21 @@ section.hero{padding:0;}
 .hero__media{width:36%;}
 .hero__media img{object-position:50% 18%;}
 @media(max-width:900px){.hero .hero__text{padding:36px 0 28px;}.hero__media{width:100%;height:300px;}}
-</style></head><body>
-<div class="sig"><span>Le marché récompense la méthode, pas le pari</span></div>
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* header harmonisé avec Le Bot (taille/police), couleurs de la page conservées */
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-size:15px;}
+.nav .nav__row{max-width:1040px;margin:0 auto;padding:0 28px;min-height:64px;height:78px;display:flex;align-items:center;justify-content:space-between;}
+.nav .brand{display:flex;align-items:center;gap:13px;height:40px;}
+.nav .brand__mark{width:40px;height:40px;border:1px solid var(--brass);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:14.5px;font-weight:600;color:var(--brass);box-shadow:none;}
+.nav .brand__name{font-family:"Space Grotesk",Inter,system-ui,sans-serif;font-size:17.4px;font-weight:600;letter-spacing:1.392px;text-transform:uppercase;line-height:28.7px;}
+.nav .brand__name span{color:var(--brass);}
+.nav .nav__links{display:flex;align-items:center;gap:30px;}
+.nav .nav__links a{font-family:Inter,system-ui,sans-serif;font-size:12.76px;font-weight:400;position:relative;line-height:21px;}
+.nav .nav__links a[aria-current]::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--brass);}
+</style>
+</head><body>
 <header class="nav"><div class="container nav__row">
 <a href="index.html" class="brand"><span class="brand__mark">MA</span><span class="brand__name">Macro<span>Arthur</span></span></a>
 <nav class="nav__links" id="links"><a href="index.html" aria-current="page">Accueil</a>
