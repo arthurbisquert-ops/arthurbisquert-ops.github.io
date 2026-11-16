@@ -304,7 +304,7 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
   var t=document.getElementById("vt-track");
   vids.forEach(function(v){
     var c=document.createElement("div");c.className="vt-card";
-    c.innerHTML='<div class="vt-media" role="button" aria-label="Lire le témoignage de '+v.name+'"><video preload="none" playsinline controls poster="temoignage-'+v.f+'.jpg" src="temoignage-'+v.f+'.mp4"></video><span class="vt-play"></span></div><div class="vt-body"><p class="vt-name">'+v.name+'</p><p class="vt-tag">Élève Elite · octobre 2026</p></div>';
+    c.innerHTML='<div class="vt-media" role="button" aria-label="Lire le témoignage de '+v.name+'"><video preload="none" playsinline controls poster="temoignage-'+v.f+'%20photo.jpg" src="temoignage-'+v.f+'.mp4"></video><span class="vt-play"></span></div><div class="vt-body"><p class="vt-name">'+v.name+'</p><p class="vt-tag">Élève Elite · octobre 2026</p></div>';
     var m=c.querySelector(".vt-media"),vid=m.querySelector("video"),pl=m.querySelector(".vt-play");
     m.addEventListener("click",function(e){if(vid.paused&&e.target!==vid){document.querySelectorAll(".vt-media video").forEach(function(o){if(o!==vid)o.pause();});vid.play();}});
     vid.addEventListener("play",function(){pl.style.display="none";document.querySelectorAll(".vt-media video").forEach(function(o){if(o!==vid)o.pause();});});
