@@ -225,7 +225,7 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
     <p class="lede" style="margin-top:20px;">La plupart de ceux qui me rejoignent ont déjà perdu de l'argent à l'instinct. MacroArthur transforme l'actualité géopolitique en décisions structurées : une méthode, pas une suite de paris.</p>
     <div class="cta-row">
       <a class="btn btn--gold" href="#offres">Voir les offres →</a>
-      <a class="btn btn--line" href="questionnaire.html">Rejoindre le groupe gratuit</a>
+      <a class="btn btn--line" href="#temoignages">Voir les témoignages</a>
     </div>
     <p class="proof"><b>★★★★★</b> &nbsp;119 avis vérifiés</p>
   </div>
@@ -243,17 +243,19 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
   </div>
   <div class="offers">
     <div class="offer offer--elite reveal">
-      <span class="badge">Offre Elite</span>
-      <p class="offer__tag">Formation + mentorat</p>
-      <p class="offer__price">1 997€ <small>/ tout inclus</small></p>
+      <span class="badge">🔥 -25 % jusqu'à dimanche · 10 places</span>
+      <p class="offer__tag">Offre Elite · session décembre → fin janvier</p>
+      <p style="margin:0;font-size:.95rem;color:var(--taupe);text-decoration:line-through;">1 997€</p>
+      <p class="offer__price">1 497€ <small>payable en 3 fois avec Klarna</small></p>
       <ul>
-        <li>Ma méthode complète sur le Gold en vidéo</li>
-        <li>1 mois de mentorat 1-on-1</li>
-        <li>Call diagnostic 45 min</li>
-        <li>Accès à vie sur la formation</li>
+        <li>2 séances par semaine en 1-on-1 avec moi</li>
+        <li>La formation complète en vidéo + sessions d'apprentissage</li>
+        <li>1 mois de mentorat pour appliquer la stratégie sur les graphiques</li>
+        <li>500€ d'économie jusqu'à dimanche 23h59</li>
       </ul>
-      <a href="https://t.me/ArthurCryptos" target="_blank" rel="noopener" class="btn btn--gold">Écrire à Arthur sur Telegram →</a>
-      <p class="offer__note">Un message à Arthur pour présenter l'offre</p>
+      <a href="https://buy.stripe.com/9B6eVf2Ry7Dm1pS34R87K0h" target="_blank" rel="noopener" class="btn btn--gold">Je bloque ma place à 1 497€ →</a>
+      <p class="offer__note" id="promo-cd" style="color:var(--bone);">⏳ Jusqu'à dimanche 22 novembre, 23h59. Ensuite : 1 997€ pour tout le monde.</p>
+      <a href="https://t.me/ArthurCryptos" target="_blank" rel="noopener" class="offer__note" style="margin-top:-6px;">Une question ? Pose-la directement à Arthur sur Telegram →</a>
     </div>
     <div class="offer offer--bot reveal">
       <span class="badge">Nouveau</span>
@@ -270,6 +272,49 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
     </div>
   </div>
   </div></section>
+
+<section id="temoignages"><div class="container">
+  <div class="head reveal" style="text-align:center;margin:0 auto 36px;">
+    <p class="kicker">Ils l'ont fait</p>
+    <h2>Mes élèves Elite en parlent</h2>
+    <p>Session d'octobre · face caméra, sans filtre.</p>
+  </div>
+  <div class="vt-track" id="vt-track"></div>
+</div></section>
+<style>
+.vt-track{display:flex;gap:18px;justify-content:center;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.vt-track::-webkit-scrollbar{display:none;}
+.vt-card{flex:0 0 260px;scroll-snap-align:center;background:linear-gradient(160deg,rgba(38,33,26,.95),rgba(22,19,15,.95));border:1px solid var(--line-gold);border-radius:18px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s;}
+.vt-card:hover{border-color:var(--gold-light);transform:translateY(-3px);box-shadow:0 0 40px rgba(201,162,75,.18);}
+.vt-media{position:relative;aspect-ratio:9/16;background:#0E0C09;cursor:pointer;}
+.vt-media img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;}
+.vt-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#E8CB85,#C9A24B 55%,#A57F2C);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px -6px rgba(201,162,75,.6);}
+.vt-play:after{content:"";margin-left:5px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #1a140a;}
+.vt-body{padding:14px 16px 16px;}
+.vt-name{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--bone);margin:0 0 2px;}
+.vt-tag{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:0;}
+.vt-yt{display:inline-block;margin-top:8px;font-size:.72rem;color:var(--taupe);}.vt-yt:hover{color:var(--gold-light);}
+@media(max-width:860px){.vt-track{justify-content:flex-start;}}
+@media(max-width:640px){.vt-card{flex-basis:72vw;}}
+</style>
+<script>
+(function(){
+  var vids=[{id:"c5LVdvTeE_A",name:"Teddy"},{id:"rHEWIcPIitY",name:"Julien"},{id:"akaqkkG3KFE",name:"Maxime"}];
+  var t=document.getElementById("vt-track");
+  vids.forEach(function(v){
+    var c=document.createElement("div");c.className="vt-card";
+    c.innerHTML='<div class="vt-media" role="button" aria-label="Lire le témoignage de '+v.name+'"><img loading="lazy" src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="Témoignage de '+v.name+'"><span class="vt-play"></span></div><div class="vt-body"><p class="vt-name">'+v.name+'</p><p class="vt-tag">Élève Elite · octobre 2026</p><a class="vt-yt" href="https://youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener">Voir sur YouTube →</a></div>';
+    c.querySelector(".vt-media").addEventListener("click",function(){
+      this.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+v.id+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Témoignage de '+v.name+'"></iframe>';
+    });
+    t.appendChild(c);
+  });
+  var end=Date.UTC(2026,10,22,22,59,0),el=document.getElementById("promo-cd");
+  function cd(){if(!el)return;var d=end-Date.now();if(d<=0){el.textContent="Offre terminée.";return;}var j=Math.floor(d/864e5),h=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4);el.innerHTML="⏳ Plus que <strong>"+j+"j "+h+"h "+m+"min</strong> à 1 497€. Ensuite : 1 997€ pour tout le monde.";}
+  cd();setInterval(cd,30000);
+})();
+</script>
 
 <section id="avis" class="alt"><div class="container">
   <div class="head reveal" style="text-align:center;margin:0 auto 36px;"><p class="kicker">Ce que les membres en disent</p></div>
