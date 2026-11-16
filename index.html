@@ -287,9 +287,9 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 .vt-card{flex:0 0 260px;scroll-snap-align:center;background:linear-gradient(160deg,rgba(38,33,26,.95),rgba(22,19,15,.95));border:1px solid var(--line-gold);border-radius:18px;overflow:hidden;transition:border-color .2s,transform .2s,box-shadow .2s;}
 .vt-card:hover{border-color:var(--gold-light);transform:translateY(-3px);box-shadow:0 0 40px rgba(201,162,75,.18);}
 .vt-media{position:relative;aspect-ratio:9/16;background:#0E0C09;cursor:pointer;}
-.vt-media img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;}
+.vt-media video{width:100%;height:100%;object-fit:cover;display:block;background:#0E0C09;}
 .vt-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-.vt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#E8CB85,#C9A24B 55%,#A57F2C);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px -6px rgba(201,162,75,.6);}
+.vt-play{pointer-events:none;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#E8CB85,#C9A24B 55%,#A57F2C);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px -6px rgba(201,162,75,.6);}
 .vt-play:after{content:"";margin-left:5px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #1a140a;}
 .vt-body{padding:14px 16px 16px;}
 .vt-name{font-family:var(--display);font-weight:600;font-size:1.1rem;color:var(--bone);margin:0 0 2px;}
@@ -300,14 +300,15 @@ footer .foot__bot{display:flex;justify-content:space-between;gap:12px;flex-wrap:
 </style>
 <script>
 (function(){
-  var vids=[{id:"c5LVdvTeE_A",name:"Teddy"},{id:"rHEWIcPIitY",name:"Julien"},{id:"akaqkkG3KFE",name:"Maxime"}];
+  var vids=[{f:"teddy",name:"Teddy"},{f:"julien",name:"Julien"},{f:"maxime",name:"Maxime"}];
   var t=document.getElementById("vt-track");
   vids.forEach(function(v){
     var c=document.createElement("div");c.className="vt-card";
-    c.innerHTML='<div class="vt-media" role="button" aria-label="Lire le témoignage de '+v.name+'"><img loading="lazy" src="https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg" alt="Témoignage de '+v.name+'"><span class="vt-play"></span></div><div class="vt-body"><p class="vt-name">'+v.name+'</p><p class="vt-tag">Élève Elite · octobre 2026</p><a class="vt-yt" href="https://youtube.com/shorts/'+v.id+'" target="_blank" rel="noopener">Voir sur YouTube →</a></div>';
-    c.querySelector(".vt-media").addEventListener("click",function(){
-      this.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+v.id+'?autoplay=1&rel=0&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="Témoignage de '+v.name+'"></iframe>';
-    });
+    c.innerHTML='<div class="vt-media" role="button" aria-label="Lire le témoignage de '+v.name+'"><video preload="none" playsinline controls poster="videos/temoignage-'+v.f+'.jpg" src="videos/temoignage-'+v.f+'.mp4"></video><span class="vt-play"></span></div><div class="vt-body"><p class="vt-name">'+v.name+'</p><p class="vt-tag">Élève Elite · octobre 2026</p></div>';
+    var m=c.querySelector(".vt-media"),vid=m.querySelector("video"),pl=m.querySelector(".vt-play");
+    m.addEventListener("click",function(e){if(vid.paused&&e.target!==vid){document.querySelectorAll(".vt-media video").forEach(function(o){if(o!==vid)o.pause();});vid.play();}});
+    vid.addEventListener("play",function(){pl.style.display="none";document.querySelectorAll(".vt-media video").forEach(function(o){if(o!==vid)o.pause();});});
+    vid.addEventListener("pause",function(){pl.style.display="";});
     t.appendChild(c);
   });
   var end=Date.UTC(2026,10,22,22,59,0),el=document.getElementById("promo-cd");
